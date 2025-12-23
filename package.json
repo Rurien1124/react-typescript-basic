@@ -2,6 +2,10 @@
   "name": "react-typescript-basic",
   "version": "0.1.0",
   "private": true,
+  "description": "React typescript basic",
+  "repository": "https://github.com/Rurien1124/react-typescript-basic.git",
+  "author": "Rurien",
+  "license": "MIT",
   "dependencies": {
     "@testing-library/dom": "^10.4.1",
     "@testing-library/jest-dom": "^6.9.1",
@@ -40,10 +44,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "description": "React typescript basic",
-  "main": "index.js",
-  "repository": "https://github.com/Rurien1124/react-typescript-basic.git",
-  "author": "Rurien <a01092603909@gmail.com>",
-  "license": "MIT"
+  }
 }
