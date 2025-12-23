@@ -40,5 +40,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "React typescript basic",
+  "main": "index.js",
+  "repository": "https://github.com/Rurien1124/react-typescript-basic.git",
+  "author": "Rurien <a01092603909@gmail.com>",
+  "license": "MIT"
 }
