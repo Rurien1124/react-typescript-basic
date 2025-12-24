@@ -1,6 +1,7 @@
 import React from 'react';
 import { ContainerHello, Hello } from './props/Hello';
 import { Message } from './state/Message';
+import { Counter } from './state/Counter';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <ContainerHello name={'Rurien'} color={'green'} />
       <ContainerHello name={'Rurien'} />
       <Message />
+      <Counter />
     </div>
   );
 }
