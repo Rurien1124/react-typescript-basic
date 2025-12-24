@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { CounterButton } from '../props/CounterButton';
+import { CounterLabel } from '../props/CounterLabel';
 
 export const Counter = () => {
   const [count, setCount] = useState(0);
@@ -13,9 +15,9 @@ export const Counter = () => {
 
   return (
     <div>
-      <button onClick={increase}>+</button>
-      <label>{count}</label>
-      <button onClick={decrease}>-</button>
+      <CounterButton onClick={increase} text={'+'} />
+      <CounterLabel count={count} />
+      <CounterButton onClick={decrease} text={'-'} />
     </div>
   );
 };
