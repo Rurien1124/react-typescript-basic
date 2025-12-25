@@ -11,9 +11,10 @@ enum CounterButtonType {
 }
 
 const ContextCounterButton = ({ type }: Props) => {
-  const { increase, decrease } = useContext(CountContext);
+  const { actions } = useContext(CountContext);
 
-  const action = type === CounterButtonType.PLUS ? increase : decrease;
+  const action =
+    type === CounterButtonType.PLUS ? actions.increase : actions.decrease;
 
   return <button onClick={action}>{type}</button>;
 };

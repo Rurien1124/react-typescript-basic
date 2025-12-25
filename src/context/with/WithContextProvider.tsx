@@ -2,8 +2,10 @@ import React, { createContext, JSX, useState } from 'react';
 
 const CountContext = createContext({
   count: 0,
-  increase: () => {},
-  decrease: () => {},
+  actions: {
+    increase: () => {},
+    decrease: () => {},
+  },
 });
 
 interface Props {
@@ -26,8 +28,10 @@ const CountProvider = ({ children }: Props): JSX.Element => {
     <CountContext.Provider
       value={{
         count,
-        increase,
-        decrease,
+        actions: {
+          increase,
+          decrease,
+        },
       }}
     >
       {children}
