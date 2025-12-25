@@ -3,6 +3,7 @@ import { ContainerHello, Hello } from './props/Hello';
 import { Message } from './state/Message';
 import { Counter } from './state/Counter';
 import { WithoutContext } from './context/without/WithoutContext';
+import { WithContext } from './context/with/WithContext';
 
 function App() {
   return (
@@ -12,15 +13,18 @@ function App() {
       <Hello name={'Rurien'} />
       <ContainerHello name={'Rurien'} color={'green'} />
       <ContainerHello name={'Rurien'} />
+      <p />
 
       {/* State */}
       <Message />
       <Counter />
+      <p />
 
       {/* Without context */}
       <WithoutContext />
-
+      <p />
       {/* With context */}
+      <WithContext></WithContext>
     </div>
   );
 }
