@@ -4,6 +4,7 @@ import { Message } from './state/Message';
 import { Counter } from './state/Counter';
 import { WithoutContext } from './context/without/WithoutContext';
 import { WithContext } from './context/with/WithContext';
+import { TodoCompoment } from './context/with/TodoCompoment';
 
 function App() {
   return (
@@ -23,8 +24,10 @@ function App() {
       {/* Without context */}
       <WithoutContext />
       <p />
+
       {/* With context */}
-      <WithContext></WithContext>
+      <WithContext />
+      <TodoCompoment />
     </div>
   );
 }
