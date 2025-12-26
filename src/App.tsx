@@ -5,7 +5,7 @@ import { Counter } from './state/Counter';
 import { WithoutContext } from './context/without/WithoutContext';
 import { WithContext } from './context/with/WithContext';
 import { TodoCompoment } from './context/with/TodoCompoment';
-import { Layout } from './layout/Layout';
+import { Layout } from './layouts/main/Layout';
 
 function App() {
   return (
