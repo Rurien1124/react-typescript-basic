@@ -1,4 +1,4 @@
-import React, { createContext, JSX, useState } from 'react';
+import React, { createContext, ReactNode, useState } from 'react';
 
 const CountContext = createContext({
   count: 0,
@@ -9,11 +9,11 @@ const CountContext = createContext({
 });
 
 interface Props {
-  children: JSX.Element | JSX.Element[];
+  children: ReactNode;
 }
 
 /** Count 컨텍스트 제공 */
-const CountProvider = ({ children }: Props): JSX.Element => {
+const CountProvider = ({ children }: Props) => {
   const [count, setCount] = useState(0);
 
   const increase = (): void => {
