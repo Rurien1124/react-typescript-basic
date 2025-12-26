@@ -1,4 +1,4 @@
-import React, { createContext, JSX, useState } from 'react';
+import React, { createContext, JSX, ReactNode, useState } from 'react';
 
 type TodoListType = {
   id: number;
@@ -18,7 +18,7 @@ type TodoListContextValueType = {
 };
 
 interface Props {
-  children: JSX.Element | JSX.Element[];
+  children: ReactNode;
 }
 
 export const TodoContext = createContext<TodoListContextValueType | undefined>(
