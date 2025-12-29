@@ -5,6 +5,7 @@ import { Counter } from '../../state/Counter';
 import { WithoutContext } from '../../context/without/WithoutContext';
 import { WithContext } from '../../context/with/WithContext';
 import { TodoCompoment } from '../../context/with/TodoCompoment';
+import { HomeButton } from '../../router/Navigate';
 
 export const Example = () => {
   return (
@@ -28,6 +29,9 @@ export const Example = () => {
       {/* With context */}
       <WithContext />
       <TodoCompoment />
+
+      {/* Navigate */}
+      <HomeButton />
     </div>
   );
 };
