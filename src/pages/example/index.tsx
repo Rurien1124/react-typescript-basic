@@ -1,10 +1,11 @@
 import React from 'react';
-import { ContainerHello, Hello } from '../../props/Hello';
-import { Message } from '../../state/Message';
-import { Counter } from '../../state/Counter';
-import { WithoutContext } from '../../context/without/WithoutContext';
-import { WithContext } from '../../context/with/WithContext';
-import { TodoCompoment } from '../../context/with/TodoCompoment';
+import { ContainerHello, Hello } from '../../examples/props/Hello';
+import { Message } from '../../examples/state/Message';
+import { Counter } from '../../examples/state/Counter';
+import { WithoutContext } from '../../examples/context/without/WithoutContext';
+import { WithContext } from '../../examples/context/with/WithContext';
+import { TodoCompoment } from '../../examples/context/with/TodoCompoment';
+import { HomeButton } from '../../examples/router/Navigate';
 
 export const Example = () => {
   return (
@@ -28,6 +29,9 @@ export const Example = () => {
       {/* With context */}
       <WithContext />
       <TodoCompoment />
+
+      {/* Navigate */}
+      <HomeButton />
     </div>
   );
 };
