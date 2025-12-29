@@ -7,7 +7,7 @@ import { WithContext } from '../../examples/context/with/WithContext';
 import { TodoCompoment } from '../../examples/context/with/TodoCompoment';
 import { HomeButton } from '../../examples/router/Navigate';
 
-export const ExamplesPage = () => {
+export const ExamplesPropsPage = () => {
   return (
     <div>
       {/* Props */}
@@ -15,13 +15,23 @@ export const ExamplesPage = () => {
       <Hello name={'Rurien'} />
       <ContainerHello name={'Rurien'} color={'green'} />
       <ContainerHello name={'Rurien'} />
-      <p />
+    </div>
+  );
+};
 
+export const ExamplesStatePage = () => {
+  return (
+    <div>
       {/* State */}
       <Message />
       <Counter />
-      <p />
+    </div>
+  );
+};
 
+export const ExamplesContextPage = () => {
+  return (
+    <div>
       {/* Without context */}
       <WithoutContext />
       <p />
@@ -29,7 +39,13 @@ export const ExamplesPage = () => {
       {/* With context */}
       <WithContext />
       <TodoCompoment />
+    </div>
+  );
+};
 
+export const ExamplesNavigationPage = () => {
+  return (
+    <div>
       {/* Navigate */}
       <HomeButton />
     </div>
