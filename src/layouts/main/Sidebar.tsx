@@ -53,8 +53,8 @@ export const Sidebar = () => {
           </MenuLink>
         </MenuItem>
         <MenuItem>
-          <MenuLink to='/example' end>
-            Example
+          <MenuLink to='/examples' end>
+            Examples
           </MenuLink>
         </MenuItem>
         <MenuItem>

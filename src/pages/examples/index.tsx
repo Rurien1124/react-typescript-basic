@@ -7,7 +7,7 @@ import { WithContext } from '../../examples/context/with/WithContext';
 import { TodoCompoment } from '../../examples/context/with/TodoCompoment';
 import { HomeButton } from '../../examples/router/Navigate';
 
-export const Example = () => {
+export const ExamplesPage = () => {
   return (
     <div>
       {/* Props */}

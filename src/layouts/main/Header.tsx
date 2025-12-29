@@ -39,8 +39,8 @@ export const Header = () => {
         <HeaderLink to='/' end>
           Home
         </HeaderLink>
-        <HeaderLink to='/example' end>
-          Example
+        <HeaderLink to='/examples' end>
+          Examples
         </HeaderLink>
         <HeaderLink to='https://github.com/Rurien1124'>GitHub</HeaderLink>
       </Nav>
