@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const Container = styled.header`
   background-color: #4285f4;
@@ -16,7 +16,7 @@ const Nav = styled.nav`
   margin-top: 10px;
 `;
 
-const NavLink = styled(Link)`
+const HeaderLink = styled(NavLink)`
   color: #fff;
   text-decoration: none;
   margin-right: 20px;
@@ -25,6 +25,10 @@ const NavLink = styled(Link)`
   &:hover {
     text-decoration: underline;
   }
+  &.active {
+    font-weight: bold;
+    font-size: 12px;
+  }
 `;
 
 export const Header = () => {
@@ -32,9 +36,13 @@ export const Header = () => {
     <Container>
       <Logo src='https://avatars.githubusercontent.com/u/89754008' />
       <Nav>
-        <NavLink to='/'>Home</NavLink>
-        <NavLink to='/example'>Example</NavLink>
-        <NavLink to='https://github.com/Rurien1124'>GitHub</NavLink>
+        <HeaderLink to='/' end>
+          Home
+        </HeaderLink>
+        <HeaderLink to='/example' end>
+          Example
+        </HeaderLink>
+        <HeaderLink to='https://github.com/Rurien1124'>GitHub</HeaderLink>
       </Nav>
     </Container>
   );

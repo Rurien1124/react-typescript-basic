@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const Container = styled.aside`
   background-color: #f2f2f2;
@@ -16,13 +16,18 @@ const MenuItem = styled.li`
   margin-bottom: 10px;
 `;
 
-const MenuLink = styled(Link)`
+const MenuLink = styled(NavLink)`
   color: #333;
   text-decoration: none;
   font-size: 10px;
 
   &:hover {
     color: #4285f4;
+  }
+
+  &.active {
+    font-weight: bold;
+    font-size: 12px;
   }
 `;
 
@@ -43,10 +48,14 @@ export const Sidebar = () => {
     <Container>
       <Menu>
         <MenuItem>
-          <MenuLink to='/'>Home</MenuLink>
+          <MenuLink to='/' end>
+            Home
+          </MenuLink>
         </MenuItem>
         <MenuItem>
-          <MenuLink to='/example'>Example</MenuLink>
+          <MenuLink to='/example' end>
+            Example
+          </MenuLink>
         </MenuItem>
         <MenuItem>
           <MenuLink to='https://github.com/Rurien1124'>GitHub</MenuLink>
