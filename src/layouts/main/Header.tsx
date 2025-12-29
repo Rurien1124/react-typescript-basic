@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import { Link } from 'react-router-dom';
 
 const Container = styled.header`
   background-color: #4285f4;
@@ -15,7 +16,7 @@ const Nav = styled.nav`
   margin-top: 10px;
 `;
 
-const NavLink = styled.a`
+const NavLink = styled(Link)`
   color: #fff;
   text-decoration: none;
   margin-right: 20px;
@@ -31,9 +32,9 @@ export const Header = () => {
     <Container>
       <Logo src='https://avatars.githubusercontent.com/u/89754008' />
       <Nav>
-        <NavLink href='#'>Home</NavLink>
-        <NavLink href='#'>About</NavLink>
-        <NavLink href='https://github.com/Rurien1124'>GitHub</NavLink>
+        <NavLink to='/'>Home</NavLink>
+        <NavLink to='/example'>Example</NavLink>
+        <NavLink to='https://github.com/Rurien1124'>GitHub</NavLink>
       </Nav>
     </Container>
   );

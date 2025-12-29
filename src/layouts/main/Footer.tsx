@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import { Link } from 'react-router-dom';
 
 const Container = styled.footer`
   background-color: #333;
@@ -12,7 +13,7 @@ const FooterText = styled.p`
   margin-bottom: 10px;
 `;
 
-const SocialMediaLink = styled.a`
+const SocialMediaLink = styled(Link)`
   color: #fff;
   text-decoration: none;
   margin-right: 10px;
@@ -27,8 +28,8 @@ export const Footer = () => {
     <Container>
       <FooterText>2025 Rurien1124. All rights reserved.</FooterText>
       <div>
-        <SocialMediaLink href='#'>Facebook</SocialMediaLink>
-        <SocialMediaLink href='#'>Twitter</SocialMediaLink>
+        <SocialMediaLink to='/'>Facebook</SocialMediaLink>
+        <SocialMediaLink to='/'>Twitter</SocialMediaLink>
       </div>
     </Container>
   );
