@@ -97,6 +97,7 @@ export const Sidebar = () => {
             <SubMenuContent to='/examples/context' text='Context' />
             <SubMenuContent to='/examples/navigation' text='Navigation' />
             <SubMenuContent to='/examples/use-effect' text='UseEffect' />
+            <SubMenuContent to='/examples/fetch' text='Fetch' />
           </SubMenu>
         </MenuItem>
         <MenuItem>

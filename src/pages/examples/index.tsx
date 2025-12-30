@@ -6,6 +6,7 @@ import { WithoutContext } from '../../examples/context/without/WithoutContext';
 import { WithContext } from '../../examples/context/with/WithContext';
 import { TodoCompoment } from '../../examples/context/with/TodoCompoment';
 import { HomeButton } from '../../examples/router/Navigate';
+import { PhotoCards } from '../../examples/fetch/Fetch';
 
 export const ExamplesPropsPage = () => {
   return (
@@ -48,6 +49,14 @@ export const ExamplesNavigationPage = () => {
     <div>
       {/* Navigate */}
       <HomeButton />
+    </div>
+  );
+};
+
+export const PhotoCardsPage = () => {
+  return (
+    <div>
+      <PhotoCards />
     </div>
   );
 };
