@@ -13,8 +13,6 @@ interface PostProps {
 export const BlogPosts = () => {
   const [posts, setPosts] = useState<ReadonlyArray<PostProps>>([]);
 
-  console.log(mockPostData);
-
   useEffect(() => {
     setTimeout(() => {
       setPosts(mockPostData);
