@@ -8,6 +8,7 @@ import {
   ExamplesNavigationPage,
   ExamplesPropsPage,
   ExamplesStatePage,
+  PhotoCardsPage,
 } from './pages/examples';
 import { BlogPosts } from './pages/examples/BlogPosts';
 
@@ -23,6 +24,7 @@ function App() {
           <Route path='context' element={<ExamplesContextPage />} />
           <Route path='navigation' element={<ExamplesNavigationPage />} />
           <Route path='use-effect' element={<BlogPosts />} />
+          <Route path='fetch' element={<PhotoCardsPage />} />
         </Route>
         <Route
           path={'*'}
