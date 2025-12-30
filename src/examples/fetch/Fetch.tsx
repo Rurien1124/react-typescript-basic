@@ -74,11 +74,17 @@ async function fetchPhotos() {
 export const PhotoCards = () => {
   const [photos, setPhotos] = React.useState<PhotoProps[]>([]);
 
+  // 메서드 체이닝 방식
+  // useEffect(() => {
+  //   fetch('https://jsonplaceholder.typicode.com/photos')
+  //     .then((response) => response.json())
+  //     .then((data) => setPhotos(data.slice(0, 8)))
+  //     .catch((error) => console.error(error));
+  // }, []);
+
+  // Async await 방식
   useEffect(() => {
-    fetch('https://jsonplaceholder.typicode.com/photos')
-      .then((response) => response.json())
-      .then((data) => setPhotos(data.slice(0, 8)))
-      .catch((error) => console.error(error));
+    fetchPhotos().then((response) => setPhotos(response));
   }, []);
 
   return (
