@@ -27,6 +27,32 @@ const Photo = styled.img`
   border-radius: 4px;
 `;
 
+const SpinnerDiv = styled.div`
+  padding: 24px;
+  text-align: 'center';
+`;
+
+const SpinnerStyle = styled.div`
+  width: 32px;
+  height: 32px;
+  border: 4px solid #ddd;
+  border-top: 4px solid #333;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+`;
+
+const Spinner = () => (
+  <SpinnerDiv>
+    <SpinnerStyle className='spinner' />
+  </SpinnerDiv>
+);
+
 interface PhotoProps {
   readonly albumId: number;
   readonly id: number;
@@ -59,13 +85,19 @@ export const PhotoCards = () => {
     <Container>
       {photos.map(({ id, title, thumbnailUrl }: PhotoProps) => (
         <PhotoCard key={id}>
+          <Spinner />
           <Photo
             src={thumbnailUrl}
             alt={title}
+            loading='lazy'
+            onLoad={(error) => {
+              error.currentTarget.previousSibling?.remove();
+            }}
             onError={(error) => {
               error.currentTarget.onerror = null;
               error.currentTarget.src =
                 'https://dummyimage.com/200x200/000/fff';
+              error.currentTarget.previousSibling?.remove();
             }}
           />
           <Title>{title}</Title>
