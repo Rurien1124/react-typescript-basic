@@ -1,4 +1,4 @@
-import React, { createContext, JSX, ReactNode, useState } from 'react';
+import React, { createContext, ReactNode, useState } from 'react';
 
 type TodoListType = {
   id: number;

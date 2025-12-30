@@ -9,6 +9,7 @@ import {
   ExamplesPropsPage,
   ExamplesStatePage,
 } from './pages/examples';
+import { BlogPosts } from './pages/examples/BlogPosts';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path='state' element={<ExamplesStatePage />} />
           <Route path='context' element={<ExamplesContextPage />} />
           <Route path='navigation' element={<ExamplesNavigationPage />} />
+          <Route path='use-effect' element={<BlogPosts />} />
         </Route>
         <Route
           path={'*'}
