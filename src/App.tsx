@@ -4,6 +4,7 @@ import { MainPage } from './pages/main';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { ErrorPage } from './pages/error';
 import {
+  AxiosPage,
   ExamplesContextPage,
   ExamplesNavigationPage,
   ExamplesPropsPage,
@@ -25,6 +26,7 @@ function App() {
           <Route path='navigation' element={<ExamplesNavigationPage />} />
           <Route path='use-effect' element={<BlogPosts />} />
           <Route path='fetch' element={<PhotoCardsPage />} />
+          <Route path='axios' element={<AxiosPage />} />
         </Route>
         <Route
           path={'*'}
