@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 import styled from '@emotion/styled';
+import { getJobsList } from './Service';
 
 const Container = styled.div`
   max-width: 600px;
@@ -34,21 +34,24 @@ export interface JobProps {
 }
 
 export const Jobs = () => {
-  const [jobs, setJobs] = useState<JobProps[]>([]);
+  const [jobs, setJobs] = useState<ReadonlyArray<JobProps>>([]);
 
   useEffect(() => {
-    const getJobs = async () => {
-      try {
-        const response = await axios.get(
-          'https://jsonplaceholder.typicode.com/todos/'
-        );
-        setJobs(response.data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
+    // 바로 사용하는 방식 => 서비스 미사용
+    // const getJobs = async () => {
+    //   try {
+    //     const response = await axios.get(
+    //       'https://jsonplaceholder.typicode.com/todos/'
+    //     );
+    //     setJobs(response.data);
+    //   } catch (error) {
+    //     console.error(error);
+    //   }
+    // };
+    //
+    // void getJobs();
 
-    void getJobs();
+    getJobsList(setJobs);
   }, []);
 
   return (
