@@ -7,6 +7,7 @@ import { WithContext } from '../../examples/context/with/WithContext';
 import { TodoCompoment } from '../../examples/context/with/TodoCompoment';
 import { HomeButton } from '../../examples/router/Navigate';
 import { PhotoCards } from '../../examples/fetch/Fetch';
+import { Jobs } from '../../examples/axios/Axios';
 
 export const ExamplesPropsPage = () => {
   return (
@@ -57,6 +58,14 @@ export const PhotoCardsPage = () => {
   return (
     <div>
       <PhotoCards />
+    </div>
+  );
+};
+
+export const AxiosPage = () => {
+  return (
+    <div>
+      <Jobs />
     </div>
   );
 };
