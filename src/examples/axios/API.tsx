@@ -1,9 +1,13 @@
 import axios from 'axios';
 
-export const jsonPlaceholderRequest = axios.create({
-  baseURL: 'https://jsonplaceholder.typicode.com/',
+const defaultRequestConfig = {
   withCredentials: false,
   timeout: 3000,
+};
+
+export const jsonPlaceholderRequest = axios.create({
+  baseURL: 'https://jsonplaceholder.typicode.com/',
+  ...defaultRequestConfig,
 });
 
 jsonPlaceholderRequest.interceptors.request.use(
@@ -13,7 +17,18 @@ jsonPlaceholderRequest.interceptors.request.use(
     return config;
   },
   (error) => {
-    console.log('오류 시 수행 작업');
+    console.error('요청 오류 시 수행 작업');
+    return Promise.reject(error);
+  }
+);
+
+jsonPlaceholderRequest.interceptors.response.use(
+  (response) => {
+    console.log('응답 데이터 가공');
+    return response;
+  },
+  (error) => {
+    console.error('응답 오류 시 수행 작업');
     return Promise.reject(error);
   }
 );
