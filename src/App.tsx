@@ -9,6 +9,7 @@ import {
   ExamplesNavigationPage,
   ExamplesPropsPage,
   ExamplesStatePage,
+  LocalStoragePage,
   PhotoCardsPage,
 } from './pages/examples';
 import { BlogPosts } from './pages/examples/BlogPosts';
@@ -27,6 +28,7 @@ function App() {
           <Route path='use-effect' element={<BlogPosts />} />
           <Route path='fetch' element={<PhotoCardsPage />} />
           <Route path='axios' element={<AxiosPage />} />
+          <Route path='local-storage' element={<LocalStoragePage />} />
         </Route>
         <Route
           path={'*'}

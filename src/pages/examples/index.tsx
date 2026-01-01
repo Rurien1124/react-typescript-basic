@@ -8,6 +8,7 @@ import { TodoCompoment } from '../../examples/context/with/TodoCompoment';
 import { HomeButton } from '../../examples/router/Navigate';
 import { PhotoCards } from '../../examples/fetch/Fetch';
 import { Jobs } from '../../examples/axios/Axios';
+import { LocalStorageCounter } from '../../examples/storage/LocalStorageCounter';
 
 export const ExamplesPropsPage = () => {
   return (
@@ -66,6 +67,14 @@ export const AxiosPage = () => {
   return (
     <div>
       <Jobs />
+    </div>
+  );
+};
+
+export const LocalStoragePage = () => {
+  return (
+    <div>
+      <LocalStorageCounter />
     </div>
   );
 };
