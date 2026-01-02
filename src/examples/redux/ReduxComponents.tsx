@@ -13,51 +13,72 @@ const ParentContainer = styled(BaseContainer)`
 
 const ChildContainer = styled(BaseContainer)``;
 
+const Button = styled.button``;
+
+interface Props {
+  num: number;
+  increase: () => void;
+}
+
 export const ReduxComponents = () => {
+  const [num, setNum] = React.useState(0);
+
+  const increase = () => {
+    setNum((prevNum) => prevNum + 1);
+  };
   return (
     <ParentContainer>
-      <LeftChild01></LeftChild01>
-      <RightChild01></RightChild01>
+      <LeftChild01 num={num} increase={increase}></LeftChild01>
+      <RightChild01 num={num} increase={increase}></RightChild01>
     </ParentContainer>
   );
 };
 
-const LeftChild01 = () => {
+const LeftChild01 = (props: Props) => {
   return (
     <ChildContainer>
-      <LeftChild02></LeftChild02>
+      <LeftChild02 {...props}></LeftChild02>
     </ChildContainer>
   );
 };
 
-const LeftChild02 = () => {
+const LeftChild02 = (props: Props) => {
   return (
     <ChildContainer>
-      <LeftChild03></LeftChild03>
+      <LeftChild03 {...props}></LeftChild03>
     </ChildContainer>
   );
 };
 
-const LeftChild03 = () => {
-  return <ChildContainer></ChildContainer>;
-};
-
-const RightChild01 = () => {
+const LeftChild03 = ({ num }: Props) => {
   return (
     <ChildContainer>
-      <RightChild02></RightChild02>
+      <h1>value: {num}</h1>
     </ChildContainer>
   );
 };
 
-const RightChild02 = () => {
+const RightChild01 = (props: Props) => {
   return (
     <ChildContainer>
-      <RightChild03></RightChild03>
+      <RightChild02 {...props}></RightChild02>
     </ChildContainer>
   );
 };
 
-const RightChild03 = () => {
-  return <ChildContainer></ChildContainer>;
+const RightChild02 = (props: Props) => {
+  return (
+    <ChildContainer>
+      <RightChild03 {...props}></RightChild03>
+    </ChildContainer>
+  );
+};
+
+const RightChild03 = ({ num, increase }: Props) => {
+  return (
+    <ChildContainer>
+      <h1>value: {num}</h1>
+      <Button onClick={increase}>+</Button>
+    </ChildContainer>
+  );
 };
