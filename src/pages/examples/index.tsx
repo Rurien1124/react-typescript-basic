@@ -9,6 +9,7 @@ import { HomeButton } from '../../examples/router/Navigate';
 import { PhotoCards } from '../../examples/fetch/Fetch';
 import { Jobs } from '../../examples/axios/Axios';
 import { LocalStorageCounter } from '../../examples/storage/LocalStorageCounter';
+import { ReduxComponents } from '../../examples/redux/ReduxComponents';
 
 export const ExamplesPropsPage = () => {
   return (
@@ -75,6 +76,14 @@ export const LocalStoragePage = () => {
   return (
     <div>
       <LocalStorageCounter />
+    </div>
+  );
+};
+
+export const ReduxComponentsPage = () => {
+  return (
+    <div>
+      <ReduxComponents />
     </div>
   );
 };
