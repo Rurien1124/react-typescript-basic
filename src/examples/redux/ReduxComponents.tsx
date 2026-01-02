@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import { Provider, useDispatch, useSelector } from 'react-redux';
+import { NumActions, NumState, NumStore } from './NumReducer';
 
 const BaseContainer = styled.div`
   border: 5px solid #000;
@@ -15,70 +17,79 @@ const ChildContainer = styled(BaseContainer)``;
 
 const Button = styled.button``;
 
-interface Props {
-  num: number;
-  increase: () => void;
-}
-
 export const ReduxComponents = () => {
-  const [num, setNum] = React.useState(0);
-
-  const increase = () => {
-    setNum((prevNum) => prevNum + 1);
-  };
   return (
     <ParentContainer>
-      <LeftChild01 num={num} increase={increase}></LeftChild01>
-      <RightChild01 num={num} increase={increase}></RightChild01>
+      <Provider store={NumStore}>
+        <LeftChild01></LeftChild01>
+        <RightChild01></RightChild01>
+      </Provider>
     </ParentContainer>
   );
 };
 
-const LeftChild01 = (props: Props) => {
+const LeftChild01 = () => {
   return (
     <ChildContainer>
-      <LeftChild02 {...props}></LeftChild02>
+      <LeftChild02></LeftChild02>
     </ChildContainer>
   );
 };
 
-const LeftChild02 = (props: Props) => {
+const LeftChild02 = () => {
   return (
     <ChildContainer>
-      <LeftChild03 {...props}></LeftChild03>
+      <LeftChild03></LeftChild03>
     </ChildContainer>
   );
 };
 
-const LeftChild03 = ({ num }: Props) => {
+const LeftChild03 = () => {
+  // State 에 저장된 값 가져오기 (useSelector)
+  const getNumState = (numState: NumState) => {
+    return numState.num;
+  };
+
+  const number = useSelector(getNumState);
+
   return (
     <ChildContainer>
-      <h1>value: {num}</h1>
+      <h1>value: {number}</h1>
     </ChildContainer>
   );
 };
 
-const RightChild01 = (props: Props) => {
+const RightChild01 = () => {
   return (
     <ChildContainer>
-      <RightChild02 {...props}></RightChild02>
+      <RightChild02></RightChild02>
     </ChildContainer>
   );
 };
 
-const RightChild02 = (props: Props) => {
+const RightChild02 = () => {
   return (
     <ChildContainer>
-      <RightChild03 {...props}></RightChild03>
+      <RightChild03></RightChild03>
     </ChildContainer>
   );
 };
 
-const RightChild03 = ({ num, increase }: Props) => {
+const RightChild03 = () => {
+  // State 에 저장된 값 변경하기 (useDispatch)
+  const dispatch = useDispatch();
+
+  const increase = () => {
+    dispatch({ type: NumActions.INCREASE });
+  };
+  const decrease = () => {
+    dispatch({ type: NumActions.DECREASE });
+  };
+
   return (
     <ChildContainer>
-      <h1>value: {num}</h1>
       <Button onClick={increase}>+</Button>
+      <Button onClick={decrease}>-</Button>
     </ChildContainer>
   );
 };
