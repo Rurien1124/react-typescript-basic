@@ -100,7 +100,6 @@ export const Sidebar = () => {
             <SubMenuContent to='/examples/fetch' text='Fetch' />
             <SubMenuContent to='/examples/axios' text='Axios' />
             <SubMenuContent to='/examples/local-storage' text='LocalStorage' />
-            <SubMenuContent to='/examples/react-redux' text='ReactRedux' />
           </SubMenu>
         </MenuItem>
         <MenuItem>
