@@ -10,6 +10,7 @@ import { PhotoCards } from '../../examples/fetch/Fetch';
 import { Jobs } from '../../examples/axios/Axios';
 import { LocalStorageCounter } from '../../examples/storage/LocalStorageCounter';
 import { ReduxComponents } from '../../examples/redux/ReduxComponents';
+import { ReduxToolkitComponents } from '../../examples/reduxtoolkit/ReduxToolkitComponents';
 
 export const ExamplesPropsPage = () => {
   return (
@@ -84,6 +85,14 @@ export const ReduxComponentsPage = () => {
   return (
     <div>
       <ReduxComponents />
+    </div>
+  );
+};
+
+export const ReduxToolkitComponentsPage = () => {
+  return (
+    <div>
+      <ReduxToolkitComponents />
     </div>
   );
 };

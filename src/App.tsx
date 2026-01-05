@@ -12,9 +12,9 @@ import {
   LocalStoragePage,
   PhotoCardsPage,
   ReduxComponentsPage,
+  ReduxToolkitComponentsPage,
 } from './pages/examples';
 import { BlogPosts } from './pages/examples/BlogPosts';
-import { ReduxComponents } from './examples/redux/ReduxComponents';
 
 function App() {
   return (
@@ -32,6 +32,10 @@ function App() {
           <Route path='axios' element={<AxiosPage />} />
           <Route path='local-storage' element={<LocalStoragePage />} />
           <Route path='react-redux' element={<ReduxComponentsPage />} />
+          <Route
+            path='redux-toolkit'
+            element={<ReduxToolkitComponentsPage />}
+          />
         </Route>
         <Route
           path={'*'}
