@@ -20,7 +20,7 @@ const Counter = () => {
   const num = useSelector((state: NumRootState) => state.numSlice.num);
 
   const increase = () => {
-    dispatch(NumSlice.actions.increase(2));
+    dispatch(NumSlice.actions.increase({ step: 2, max: 10 }));
   };
 
   return (
