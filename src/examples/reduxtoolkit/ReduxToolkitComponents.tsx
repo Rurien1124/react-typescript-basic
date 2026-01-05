@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { NumStore, NumRootState, NumDispatch, NumSlice } from './NumStore';
+import { NumDispatch, NumRootState, NumSlice, NumStore } from './NumStore';
 import { Provider, useDispatch, useSelector } from 'react-redux';
 
 const Container = styled.div``;
@@ -20,13 +20,18 @@ const Counter = () => {
   const num = useSelector((state: NumRootState) => state.numSlice.num);
 
   const increase = () => {
-    dispatch(NumSlice.actions.increase({ step: 2, max: 10 }));
+    dispatch(NumSlice.actions.increase({ step: 2, min: -10, max: 10 }));
+  };
+
+  const decrease = () => {
+    dispatch(NumSlice.actions.decrease({ step: 2, min: -10, max: 10 }));
   };
 
   return (
     <Container>
       <Button onClick={increase}>+</Button>
       <Label>{num}</Label>
+      <Button onClick={decrease}>-</Button>
     </Container>
   );
 };

@@ -8,10 +8,15 @@ export const NumSlice = createSlice({
   },
   reducers: {
     increase: (state, action) => {
-      const { step, max } = action.payload;
+      const { step, min, max } = action.payload;
 
       // 기존 Redux 와 달리 기존 상태값을 그대로 사용
-      state.num = state.num + step <= max ? state.num + step : 0;
+      state.num = state.num + step <= max ? state.num + step : min;
+    },
+    decrease: (state, action) => {
+      const { step, min, max } = action.payload;
+
+      state.num = state.num - step >= min ? state.num - step : max;
     },
   },
 });
