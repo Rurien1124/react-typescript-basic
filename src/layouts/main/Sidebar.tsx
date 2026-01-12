@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
+import { MENU_ITEMS } from '../../examples/common/Menu';
 
 const Container = styled.aside`
   background-color: #f2f2f2;
@@ -75,39 +76,6 @@ const InfoText = styled.a`
   font-size: 10px;
 `;
 
-const MENU_ITEMS: MenuItemStructure[] = [
-  {
-    title: 'Home',
-    link: '/',
-  },
-  {
-    title: 'Examples',
-    link: '#',
-    subMenu: [
-      { link: '/examples/props', title: 'Props' },
-      { link: '/examples/state', title: 'State' },
-      { link: '/examples/context', title: 'Context' },
-      { link: '/examples/navigation', title: 'Navigation' },
-      { link: '/examples/use-effect', title: 'UseEffect' },
-      { link: '/examples/fetch', title: 'Fetch' },
-      { link: '/examples/axios', title: 'Axios' },
-      { link: '/examples/local-storage', title: 'LocalStorage' },
-      { link: '/examples/react-redux', title: 'ReactRedux' },
-      { link: '/examples/redux-toolkit', title: 'ReduxToolkit' },
-    ],
-  },
-  {
-    title: 'GitHub',
-    link: 'https://github.com/Rurien1124',
-  },
-];
-
-type MenuItemStructure = {
-  title: string;
-  link: string;
-  subMenu?: MenuItemStructure[];
-};
-
 interface SubMenuContentProps {
   to: string;
   text: string;
@@ -125,6 +93,8 @@ TODO
   - NavLink 사용 시 to='#' 설정하면 계속 active 상태 (현재 경로이기 때문)
     => button 또는 div로 변경 필요
 
+  - HeaderLink 선택 시 사이드바 펼침 필요
+    => url 기준 open 매칭 필요?
  */
 export const Sidebar = () => {
   const [openMenu, setOpenMenu] = useState<string | null>(null);
