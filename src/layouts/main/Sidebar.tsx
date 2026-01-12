@@ -31,28 +31,6 @@ const MenuLink = styled(NavLink)`
   }
 `;
 
-const MenuButton = styled.li`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-`;
-
-const MenuText = styled.div`
-  color: #333;
-  text-decoration: none;
-  font-size: 10px;
-  cursor: pointer;
-
-  &:hover {
-    color: #4285f4;
-  }
-
-  &.active {
-    font-weight: bold;
-    font-size: 12px;
-  }
-`;
-
 const Chevron = styled.span<{ open: boolean }>`
   font-size: 10px;
   transition: transform 0.2s ease;
@@ -97,9 +75,38 @@ const InfoText = styled.a`
   font-size: 10px;
 `;
 
-const MENU_KEY = {
-  EXAMPLES: 'examples',
-} as const;
+const MENU_ITEMS: MenuItemStructure[] = [
+  {
+    title: 'Home',
+    link: '/',
+  },
+  {
+    title: 'Examples',
+    link: '#',
+    subMenu: [
+      { link: '/examples/props', title: 'Props' },
+      { link: '/examples/state', title: 'State' },
+      { link: '/examples/context', title: 'Context' },
+      { link: '/examples/navigation', title: 'Navigation' },
+      { link: '/examples/use-effect', title: 'UseEffect' },
+      { link: '/examples/fetch', title: 'Fetch' },
+      { link: '/examples/axios', title: 'Axios' },
+      { link: '/examples/local-storage', title: 'LocalStorage' },
+      { link: '/examples/react-redux', title: 'ReactRedux' },
+      { link: '/examples/redux-toolkit', title: 'ReduxToolkit' },
+    ],
+  },
+  {
+    title: 'GitHub',
+    link: 'https://github.com/Rurien1124',
+  },
+];
+
+type MenuItemStructure = {
+  title: string;
+  link: string;
+  subMenu?: MenuItemStructure[];
+};
 
 interface SubMenuContentProps {
   to: string;
@@ -113,7 +120,12 @@ const SubMenuContent = ({ to, text }: SubMenuContentProps) => {
     </SubMenuItem>
   );
 };
+/*
+TODO
+  - NavLink 사용 시 to='#' 설정하면 계속 active 상태 (현재 경로이기 때문)
+    => button 또는 div로 변경 필요
 
+ */
 export const Sidebar = () => {
   const [openMenu, setOpenMenu] = useState<string | null>(null);
 
@@ -124,42 +136,37 @@ export const Sidebar = () => {
   return (
     <Container>
       <Menu>
-        <MenuItem>
-          <MenuLink to='/' end>
-            Home
-          </MenuLink>
-        </MenuItem>
-        <MenuItem>
-          <MenuButton>
-            <MenuLink to='#' onClick={() => toggleMenu(MENU_KEY.EXAMPLES)}>
-              Examples
+        {MENU_ITEMS.map((menu) => (
+          <MenuItem key={menu.title}>
+            <MenuLink to={menu.link} onClick={() => toggleMenu(menu.title)}>
+              {menu.title}
             </MenuLink>
-            <Chevron
-              open={openMenu === MENU_KEY.EXAMPLES}
-              onClick={() => toggleMenu(MENU_KEY.EXAMPLES)}
-            ></Chevron>
-          </MenuButton>
-          <SubMenu open={openMenu === MENU_KEY.EXAMPLES}>
-            <SubMenuContent to='/examples/props' text='Props' />
-            <SubMenuContent to='/examples/state' text='State' />
-            <SubMenuContent to='/examples/context' text='Context' />
-            <SubMenuContent to='/examples/navigation' text='Navigation' />
-            <SubMenuContent to='/examples/use-effect' text='UseEffect' />
-            <SubMenuContent to='/examples/fetch' text='Fetch' />
-            <SubMenuContent to='/examples/axios' text='Axios' />
-            <SubMenuContent to='/examples/local-storage' text='LocalStorage' />
-            <SubMenuContent to='/examples/react-redux' text='ReactRedux' />
-            <SubMenuContent to='/examples/redux-toolkit' text='ReduxToolkit' />
-          </SubMenu>
-        </MenuItem>
-        <MenuItem>
-          <MenuLink to='https://github.com/Rurien1124'>GitHub</MenuLink>
-        </MenuItem>
+            {menu.subMenu && (
+              <Chevron
+                open={openMenu === menu.title}
+                onClick={() => toggleMenu(menu.title)}
+              ></Chevron>
+            )}
+
+            {menu.subMenu && (
+              <SubMenu open={openMenu === menu.title}>
+                {menu.subMenu.map((subMenu) => (
+                  <SubMenuContent
+                    key={subMenu.title}
+                    to={subMenu.link}
+                    text={subMenu.title}
+                  />
+                ))}
+              </SubMenu>
+            )}
+          </MenuItem>
+        ))}
+
+        <Info>
+          <InfoTitle>Info title</InfoTitle>
+          <InfoText>Info text</InfoText>
+        </Info>
       </Menu>
-      <Info>
-        <InfoTitle>Info title</InfoTitle>
-        <InfoText>Info text</InfoText>
-      </Info>
     </Container>
   );
 };
