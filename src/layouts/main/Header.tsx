@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
+import { MENU_ITEMS } from '../../examples/common/Menu';
 
 const Container = styled.header`
   background-color: #4285f4;
@@ -36,11 +37,15 @@ export const Header = () => {
     <Container>
       <Logo src='https://avatars.githubusercontent.com/u/89754008' />
       <Nav>
-        <HeaderLink to='/' end>
-          Home
-        </HeaderLink>
-        <HeaderLink to='/examples'>Examples</HeaderLink>
-        <HeaderLink to='https://github.com/Rurien1124'>GitHub</HeaderLink>
+        {MENU_ITEMS.map((menu) => (
+          <HeaderLink
+            to={menu.mainLink ?? menu.link}
+            key={menu.title}
+            end={menu.match}
+          >
+            {menu.title}
+          </HeaderLink>
+        ))}
       </Nav>
     </Container>
   );

@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
+import { MENU_ITEMS } from '../../examples/common/Menu';
 
 const Container = styled.aside`
   background-color: #f2f2f2;
@@ -30,10 +31,18 @@ const MenuLink = styled(NavLink)`
     font-size: 12px;
   }
 `;
-const SubMenu = styled.ul`
+
+const Chevron = styled.span<{ open: boolean }>`
+  font-size: 10px;
+  transition: transform 0.2s ease;
+  transform: rotate(${({ open }) => (open ? '90deg' : '0deg')});
+`;
+
+const SubMenu = styled.ul<{ open: boolean }>`
   list-style: none;
   padding-left: 12px;
   margin-top: 6px;
+  display: ${({ open }) => (open ? 'block' : 'none')};
 `;
 
 const SubMenuItem = styled.li`
@@ -79,39 +88,55 @@ const SubMenuContent = ({ to, text }: SubMenuContentProps) => {
     </SubMenuItem>
   );
 };
+/*
+TODO
+  - NavLink 사용 시 to='#' 설정하면 계속 active 상태 (현재 경로이기 때문)
+    => button 또는 div로 변경 필요
 
+  - HeaderLink 선택 시 사이드바 펼침 필요
+    => url 기준 open 매칭 필요?
+ */
 export const Sidebar = () => {
+  const [openMenu, setOpenMenu] = useState<string | null>(null);
+
+  const toggleMenu = (key: string) => {
+    setOpenMenu((prev) => (prev === key ? null : key));
+  };
+
   return (
     <Container>
       <Menu>
-        <MenuItem>
-          <MenuLink to='/' end>
-            Home
-          </MenuLink>
-        </MenuItem>
-        <MenuItem>
-          <MenuLink to='/examples'>Examples</MenuLink>
-          <SubMenu>
-            <SubMenuContent to='/examples/props' text='Props' />
-            <SubMenuContent to='/examples/state' text='State' />
-            <SubMenuContent to='/examples/context' text='Context' />
-            <SubMenuContent to='/examples/navigation' text='Navigation' />
-            <SubMenuContent to='/examples/use-effect' text='UseEffect' />
-            <SubMenuContent to='/examples/fetch' text='Fetch' />
-            <SubMenuContent to='/examples/axios' text='Axios' />
-            <SubMenuContent to='/examples/local-storage' text='LocalStorage' />
-            <SubMenuContent to='/examples/react-redux' text='ReactRedux' />
-            <SubMenuContent to='/examples/redux-toolkit' text='ReduxToolkit' />
-          </SubMenu>
-        </MenuItem>
-        <MenuItem>
-          <MenuLink to='https://github.com/Rurien1124'>GitHub</MenuLink>
-        </MenuItem>
+        {MENU_ITEMS.map((menu) => (
+          <MenuItem key={menu.title}>
+            <MenuLink to={menu.link} onClick={() => toggleMenu(menu.title)}>
+              {menu.title}
+            </MenuLink>
+            {menu.subMenu && (
+              <Chevron
+                open={openMenu === menu.title}
+                onClick={() => toggleMenu(menu.title)}
+              ></Chevron>
+            )}
+
+            {menu.subMenu && (
+              <SubMenu open={openMenu === menu.title}>
+                {menu.subMenu.map((subMenu) => (
+                  <SubMenuContent
+                    key={subMenu.title}
+                    to={subMenu.link}
+                    text={subMenu.title}
+                  />
+                ))}
+              </SubMenu>
+            )}
+          </MenuItem>
+        ))}
+
+        <Info>
+          <InfoTitle>Info title</InfoTitle>
+          <InfoText>Info text</InfoText>
+        </Info>
       </Menu>
-      <Info>
-        <InfoTitle>Info title</InfoTitle>
-        <InfoText>Info text</InfoText>
-      </Info>
     </Container>
   );
 };
