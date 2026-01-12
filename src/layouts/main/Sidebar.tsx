@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
 
@@ -30,10 +30,40 @@ const MenuLink = styled(NavLink)`
     font-size: 12px;
   }
 `;
-const SubMenu = styled.ul`
+
+const MenuButton = styled.li`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+const MenuText = styled.div`
+  color: #333;
+  text-decoration: none;
+  font-size: 10px;
+  cursor: pointer;
+
+  &:hover {
+    color: #4285f4;
+  }
+
+  &.active {
+    font-weight: bold;
+    font-size: 12px;
+  }
+`;
+
+const Chevron = styled.span<{ open: boolean }>`
+  font-size: 10px;
+  transition: transform 0.2s ease;
+  transform: rotate(${({ open }) => (open ? '90deg' : '0deg')});
+`;
+
+const SubMenu = styled.ul<{ open: boolean }>`
   list-style: none;
   padding-left: 12px;
   margin-top: 6px;
+  display: ${({ open }) => (open ? 'block' : 'none')};
 `;
 
 const SubMenuItem = styled.li`
@@ -67,6 +97,10 @@ const InfoText = styled.a`
   font-size: 10px;
 `;
 
+const MENU_KEY = {
+  EXAMPLES: 'examples',
+} as const;
+
 interface SubMenuContentProps {
   to: string;
   text: string;
@@ -81,6 +115,12 @@ const SubMenuContent = ({ to, text }: SubMenuContentProps) => {
 };
 
 export const Sidebar = () => {
+  const [openMenu, setOpenMenu] = useState<string | null>(null);
+
+  const toggleMenu = (key: string) => {
+    setOpenMenu((prev) => (prev === key ? null : key));
+  };
+
   return (
     <Container>
       <Menu>
@@ -90,8 +130,16 @@ export const Sidebar = () => {
           </MenuLink>
         </MenuItem>
         <MenuItem>
-          <MenuLink to='/examples'>Examples</MenuLink>
-          <SubMenu>
+          <MenuButton>
+            <MenuLink to='#' onClick={() => toggleMenu(MENU_KEY.EXAMPLES)}>
+              Examples
+            </MenuLink>
+            <Chevron
+              open={openMenu === MENU_KEY.EXAMPLES}
+              onClick={() => toggleMenu(MENU_KEY.EXAMPLES)}
+            ></Chevron>
+          </MenuButton>
+          <SubMenu open={openMenu === MENU_KEY.EXAMPLES}>
             <SubMenuContent to='/examples/props' text='Props' />
             <SubMenuContent to='/examples/state' text='State' />
             <SubMenuContent to='/examples/context' text='Context' />
