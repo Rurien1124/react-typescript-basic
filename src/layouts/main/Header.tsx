@@ -38,11 +38,7 @@ export const Header = () => {
       <Logo src='https://avatars.githubusercontent.com/u/89754008' />
       <Nav>
         {MENU_ITEMS.map((menu) => (
-          <HeaderLink
-            to={menu.mainLink ?? menu.link}
-            key={menu.title}
-            end={menu.match}
-          >
+          <HeaderLink to={menu.link} key={menu.title}>
             {menu.title}
           </HeaderLink>
         ))}
