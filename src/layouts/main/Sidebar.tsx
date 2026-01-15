@@ -90,9 +90,6 @@ const SubMenuContent = ({ to, text }: SubMenuContentProps) => {
 };
 /*
 TODO
-  - NavLink 사용 시 to='#' 설정하면 계속 active 상태 (현재 경로이기 때문)
-    => button 또는 div로 변경 필요
-
   - HeaderLink 선택 시 사이드바 펼침 필요
     => url 기준 open 매칭 필요?
  */

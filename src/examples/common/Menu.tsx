@@ -5,8 +5,7 @@ export const MENU_ITEMS: MenuItemStructure[] = [
   },
   {
     title: 'Examples',
-    link: '#',
-    mainLink: '/examples/props',
+    link: '/examples',
     subMenu: [
       { link: '/examples/props', title: 'Props' },
       { link: '/examples/state', title: 'State' },
@@ -29,6 +28,5 @@ export const MENU_ITEMS: MenuItemStructure[] = [
 type MenuItemStructure = {
   title: string;
   link: string;
-  mainLink?: string;
   subMenu?: MenuItemStructure[];
 };
