@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from '@emotion/styled';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { MENU_ITEMS } from '../../examples/common/Menu';
 
 const Container = styled.aside`
@@ -96,6 +96,9 @@ TODO
 export const Sidebar = () => {
   const [openMenu, setOpenMenu] = useState<string | null>(null);
 
+  const currentLocation = useLocation();
+  console.log(currentLocation);
+
   const toggleMenu = (key: string) => {
     setOpenMenu((prev) => (prev === key ? null : key));
   };
@@ -116,7 +119,12 @@ export const Sidebar = () => {
             )}
 
             {menu.subMenu && (
-              <SubMenu open={openMenu === menu.title}>
+              <SubMenu
+                open={
+                  openMenu === menu.title ||
+                  currentLocation.pathname.startsWith(menu.link)
+                }
+              >
                 {menu.subMenu.map((subMenu) => (
                   <SubMenuContent
                     key={subMenu.title}
