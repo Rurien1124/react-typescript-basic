@@ -2,7 +2,6 @@ export const MENU_ITEMS: MenuItemStructure[] = [
   {
     title: 'Home',
     link: '/',
-    match: true,
   },
   {
     title: 'Examples',
@@ -31,6 +30,5 @@ type MenuItemStructure = {
   title: string;
   link: string;
   mainLink?: string;
-  match?: boolean;
   subMenu?: MenuItemStructure[];
 };
