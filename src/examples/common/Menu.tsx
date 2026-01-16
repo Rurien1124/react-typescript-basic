@@ -17,6 +17,7 @@ export const MENU_ITEMS: MenuItemStructure[] = [
       { link: '/examples/local-storage', title: 'LocalStorage' },
       { link: '/examples/react-redux', title: 'ReactRedux' },
       { link: '/examples/redux-toolkit', title: 'ReduxToolkit' },
+      { link: '/examples/infinite-scroll', title: 'InfiniteScroll' },
     ],
   },
   {

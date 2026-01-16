@@ -9,6 +9,7 @@ import {
   ExamplesNavigationPage,
   ExamplesPropsPage,
   ExamplesStatePage,
+  InfiniteScrollPage,
   LocalStoragePage,
   PhotoCardsPage,
   ReduxComponentsPage,
@@ -32,6 +33,7 @@ function App() {
           <Route path='axios' element={<AxiosPage />} />
           <Route path='local-storage' element={<LocalStoragePage />} />
           <Route path='react-redux' element={<ReduxComponentsPage />} />
+          <Route path='infinite-scroll' element={<InfiniteScrollPage />} />
           <Route
             path='redux-toolkit'
             element={<ReduxToolkitComponentsPage />}
