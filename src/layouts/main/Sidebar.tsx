@@ -88,11 +88,7 @@ const SubMenuContent = ({ to, text }: SubMenuContentProps) => {
     </SubMenuItem>
   );
 };
-/*
-TODO
-  - HeaderLink 선택 시 사이드바 펼침 필요
-    => url 기준 open 매칭 필요?
- */
+
 export const Sidebar = () => {
   const [openMenu, setOpenMenu] = useState<string | null>(null);
 
