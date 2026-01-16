@@ -11,6 +11,7 @@ import { Jobs } from '../../examples/axios/Axios';
 import { LocalStorageCounter } from '../../examples/storage/LocalStorageCounter';
 import { ReduxComponents } from '../../examples/redux/ReduxComponents';
 import { ReduxToolkitComponents } from '../../examples/reduxtoolkit/ReduxToolkitComponents';
+import { DogPhotoCards } from '../../examples/infinitescroll/Dogs';
 
 export const ExamplesPropsPage = () => {
   return (
@@ -93,6 +94,14 @@ export const ReduxToolkitComponentsPage = () => {
   return (
     <div>
       <ReduxToolkitComponents />
+    </div>
+  );
+};
+
+export const InfiniteScrollPage = () => {
+  return (
+    <div>
+      <DogPhotoCards />
     </div>
   );
 };
