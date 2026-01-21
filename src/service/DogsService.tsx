@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction, useRef } from 'react';
 import { ENDPOINTS } from '../common/Endpoints';
 import { HTTP_METHODS } from '../common/Constants';
-import { dogApiRequest } from './API';
+import { dogApiRequest } from '../api/DogsApi';
 
 export interface DogProps {
   readonly id: string;

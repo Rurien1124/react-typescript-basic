@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styled from '@emotion/styled';
-import { DogProps, getDogsList } from './Service';
+import { DogProps, getDogsList } from '../../service/DogsService';
 
 const Container = styled.div`
   display: grid;
