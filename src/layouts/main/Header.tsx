@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
-import { MENU_ITEMS } from '../../examples/common/Menu';
+import { MENU_ITEMS } from '../../common/Menu';
 
 const Container = styled.header`
   background-color: #4285f4;
