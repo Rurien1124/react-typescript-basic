@@ -9,11 +9,11 @@ import { WithContext } from '../../examples/context/with/WithContext';
 import { TodoCompoment } from '../../examples/context/with/TodoCompoment';
 import { HomeButton } from '../../examples/router/Navigate';
 import { PhotoCards } from '../../examples/fetch/Fetch';
-import { Jobs } from '../../examples/axios/Axios';
+import { Jobs } from '../../examples/axios';
 import { LocalStorageCounter } from '../../examples/storage/LocalStorageCounter';
 import { ReduxComponents } from '../../examples/redux/ReduxComponents';
 import { ReduxToolkitComponents } from '../../examples/reduxtoolkit/ReduxToolkitComponents';
-import { DogPhotoCards } from '../../examples/infinitescroll/Dogs';
+import { DogPhotoCards } from '../../examples/infinitescroll';
 import { BlogPost } from '../../examples/useeffect/BlogPost';
 
 interface BlogPostProps {

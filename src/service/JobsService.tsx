@@ -1,8 +1,8 @@
 import { Dispatch, SetStateAction } from 'react';
-import { JobProps } from './Axios';
 import { ENDPOINTS } from '../common/Endpoints';
 import { HTTP_METHODS } from '../common/Constants';
-import { jsonPlaceholderRequest } from './API';
+import { JobProps } from '../examples/axios';
+import { jsonPlaceholderRequest } from '../api/JobsApi';
 
 export const getJobsList = async (
   setJobs: Dispatch<SetStateAction<readonly JobProps[]>>
