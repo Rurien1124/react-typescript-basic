@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled from '@emotion/styled';
-import { getJobsList } from './Service';
+import { getJobsList } from '../../service/JobsService';
 
 const Container = styled.div`
   max-width: 600px;

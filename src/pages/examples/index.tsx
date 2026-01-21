@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+
+import mockPostData from '../../mock/post-data.json';
 import { ContainerHello, Hello } from '../../examples/props/Hello';
 import { Message } from '../../examples/state/Message';
 import { Counter } from '../../examples/state/Counter';
@@ -7,11 +9,19 @@ import { WithContext } from '../../examples/context/with/WithContext';
 import { TodoCompoment } from '../../examples/context/with/TodoCompoment';
 import { HomeButton } from '../../examples/router/Navigate';
 import { PhotoCards } from '../../examples/fetch/Fetch';
-import { Jobs } from '../../examples/axios/Axios';
+import { Jobs } from '../../examples/axios';
 import { LocalStorageCounter } from '../../examples/storage/LocalStorageCounter';
 import { ReduxComponents } from '../../examples/redux/ReduxComponents';
 import { ReduxToolkitComponents } from '../../examples/reduxtoolkit/ReduxToolkitComponents';
-import { DogPhotoCards } from '../../examples/infinitescroll/Dogs';
+import { DogPhotoCards } from '../../examples/infinitescroll';
+import { BlogPost } from '../../examples/useeffect/BlogPost';
+
+interface BlogPostProps {
+  readonly id: number;
+  readonly userId: number;
+  readonly title: string;
+  readonly body: string;
+}
 
 export const ExamplesPropsPage = () => {
   return (
@@ -46,6 +56,24 @@ export const ExamplesContextPage = () => {
       <WithContext />
       <TodoCompoment />
     </div>
+  );
+};
+
+export const BlogPosts = () => {
+  const [posts, setPosts] = useState<ReadonlyArray<BlogPostProps>>([]);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setPosts(mockPostData);
+    }, 1000);
+  }, []); // 렌더링 시 최초 1번 초기화
+
+  return (
+    <>
+      {posts.map(({ id, title, body }: BlogPostProps) => (
+        <BlogPost key={id} title={title} body={body} />
+      ))}
+    </>
   );
 };
 

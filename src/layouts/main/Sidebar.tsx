@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from '@emotion/styled';
 import { NavLink, useLocation } from 'react-router-dom';
-import { MENU_ITEMS } from '../../examples/common/Menu';
+import { MENU_ITEMS } from '../../common/Menu';
 
 const Container = styled.aside`
   background-color: #f2f2f2;
