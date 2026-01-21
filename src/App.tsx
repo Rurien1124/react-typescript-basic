@@ -5,6 +5,7 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import { ErrorPage } from './pages/error';
 import {
   AxiosPage,
+  BlogPosts,
   ExamplesContextPage,
   ExamplesNavigationPage,
   ExamplesPropsPage,
@@ -15,7 +16,6 @@ import {
   ReduxComponentsPage,
   ReduxToolkitComponentsPage,
 } from './pages/examples';
-import { BlogPosts } from './pages/examples/BlogPosts';
 
 function App() {
   return (
